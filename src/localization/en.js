@@ -1,5 +1,5 @@
 const intro = {
-  title: "An Alucard Situation",
+  title: "Alucard Game",
   body: ["This version of Castlevania's world is more scientific (as far as that \
     goes, considering there's still magic). The magic that does exist appeared \
     when one mortal found that under certain circumstances spacetime bent to \
@@ -45,8 +45,9 @@ const intro = {
     forever, leaving the castle dormant. Trevor has left in the following days, \
     favoring a life on the road, and so has left the castle to you, as an \
     inheritance, so to speak. And so we have reached the present."],
-  tldr: "tl;dr - You're female Alucard, who has just defeated Dracula and inherited the castle.",
-  prompt: "Begin",
+  expand: "Read more...",
+  tldr: "tl;dr - You're female Alucard, who has just defeated Dracula and \
+    inherited the castle. Manage it how you like. Choose your difficulty to start.",
   easy: "Easy",
   hard: "Hard"
 }
