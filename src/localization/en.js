@@ -50,6 +50,9 @@ const intro = {
     inherited the castle. Manage it how you like. Choose your difficulty to start.",
   easy: "Easy",
   hard: "Hard"
+},
+char = {
+  title: "Character Creation",
 }
 
-export { intro };
+export { intro, char };

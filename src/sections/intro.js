@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AnimateHeight from 'react-animate-height';
 
-import Char from './char';
 import { intro } from '../localization/en';
 
 class Intro extends Component {
@@ -16,15 +15,8 @@ class Intro extends Component {
     this.handleExpand = this.handleExpand.bind(this);
   }
 
-  handleAdvance(options) {
-    const { advance } = this.props;
-    return function() {
-      advance(<Char advance={advance} />, options);
-    }
-  }
-
   handleExpand() {
-    this.setState({ textHeight: "auto" });
+    this.setState({ textHeight: 'auto' });
   }
 
   render() {
@@ -39,15 +31,6 @@ class Intro extends Component {
       { height === 150 ? <button onClick={this.handleExpand}>{ intro.expand }</button> : null }
 
       <p><strong>{ intro.tldr }</strong></p>
-
-      <div className="center">
-        <button onClick={this.handleAdvance({ difficult: false })}>
-          { intro.easy }
-        </button>
-        <button onClick={this.handleAdvance({ difficult: true })}>
-          { intro.hard }
-        </button>
-      </div>
     </section>;
   }
 }
