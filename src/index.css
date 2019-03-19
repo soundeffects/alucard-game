@@ -32,3 +32,8 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+
+footer {
+  background: #111;
+  border-radius: 0.4em;
+}

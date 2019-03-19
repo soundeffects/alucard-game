@@ -14,6 +14,10 @@ class Intro extends Component {
     this.handleExpand = this.handleExpand.bind(this);
   }
 
+  handleReady() {
+    this.props.gameState({ ready: true });
+  }
+
   handleExpand() {
     this.setState({ textHeight: 'auto' });
   }

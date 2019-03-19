@@ -10,7 +10,7 @@ class Footer extends Component {
     super(props);
 
     this.state = {
-      sections: [Intro, Char],
+      sections: [Intro, Char]
     };
 
     this.handleAdvance = this.handleAdvance.bind(this);
@@ -25,28 +25,29 @@ class Footer extends Component {
   handleAdvance(options={}) {
     const { sections } = this.state,
           { gameState } = this.props,
-          index = sections.indexOf(gameState().section),
-          footerComponent = this;
+          index = sections.indexOf(gameState().section);
 
     return function() {
-      gameState({ section: sections[index+1], ...options })
+      gameState({ section: sections[index+1], ready: false, ...options })
     }
   }
 
   render() {
     let button;
     const { gameState } = this.props;
-
-    if (gameState().section == Intro) {
-      button = [
-        this.getButton({ difficulty: false }, footer.easy),
-        this.getButton({ difficulty: true }, footer.hard)
-      ]
-    } else {
-      button = this.getButton();
+    
+    if (gameState().ready) {
+      if (gameState().section === Intro) {
+        button = [
+          this.getButton({ difficulty: false }, footer.easy),
+          this.getButton({ difficulty: true }, footer.hard)
+        ]
+      } else {
+        button = this.getButton();
+      }
     }
 
-    return <footer>
+    return <footer class="center">
       { button }
     </footer>;
   }

@@ -8,7 +8,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      section: Intro
+      section: Intro,
+      ready: true
     };
     this.gameState = this.gameState.bind(this);
   }
