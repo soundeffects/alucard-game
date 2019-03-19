@@ -11,7 +11,6 @@ class Intro extends Component {
       textHeight: 150
     }
 
-    this.handleAdvance = this.handleAdvance.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
   }
 

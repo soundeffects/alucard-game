@@ -1,4 +1,9 @@
-const intro = {
+const footer = {
+  easy: "Easy",
+  hard: "Hard",
+  next: "Next"
+},
+intro = {
   title: "Alucard Game",
   body: ["This version of Castlevania's world is more scientific (as far as that \
     goes, considering there's still magic). The magic that does exist appeared \
@@ -48,11 +53,9 @@ const intro = {
   expand: "Read more...",
   tldr: "tl;dr - You're female Alucard, who has just defeated Dracula and \
     inherited the castle. Manage it how you like. Choose your difficulty to start.",
-  easy: "Easy",
-  hard: "Hard"
 },
 char = {
   title: "Character Creation",
 }
 
-export { intro, char };
+export { footer, intro, char };

@@ -7,18 +7,25 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.handleAdvance = this.handleAdvance.bind(this);
-    this.state = { section: <Intro /> };
+    this.state = {
+      section: Intro
+    };
+    this.gameState = this.gameState.bind(this);
   }
 
-  handleAdvance(section) {
-    this.setState({ section: section });
+  gameState(update = null) {
+    if (update) {
+      this.setState(update);
+    } else {
+      return this.state;
+    }
   }
 
   render() {
+    const Section = this.state.section;
     return <div className='app'>
-      { this.state.section }
-      <Footer advance={this.handleAdvance} section={this.state.section} />
+        <Section gameState={this.gameState}/>
+      <Footer gameState={this.gameState}/>
     </div>;
   }
 }

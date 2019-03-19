@@ -1,24 +1,53 @@
 import React, { Component } from 'react';
 
+import { footer } from '../localization/en';
+
+import Intro from '../sections/intro';
 import Char from '../sections/char';
 
 class Footer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { difficultyView: true };
+    this.state = {
+      sections: [Intro, Char],
+    };
+
     this.handleAdvance = this.handleAdvance.bind(this);
   }
 
-  handleAdvance() {
-    this.props.advance(this.props.section.handleAdvance());
+  getButton(options={}, label=footer.next) {
+    return <button onClick={this.handleAdvance(options)}>
+      { label }
+    </button>;
+  }
+
+  handleAdvance(options={}) {
+    const { sections } = this.state,
+          { gameState } = this.props,
+          index = sections.indexOf(gameState().section),
+          footerComponent = this;
+
+    return function() {
+      gameState({ section: sections[index+1], ...options })
+    }
   }
 
   render() {
+    let button;
+    const { gameState } = this.props;
+
+    if (gameState().section == Intro) {
+      button = [
+        this.getButton({ difficulty: false }, footer.easy),
+        this.getButton({ difficulty: true }, footer.hard)
+      ]
+    } else {
+      button = this.getButton();
+    }
+
     return <footer>
-      <button onClick={this.handleAdvance}>
-        Test
-      </button>
+      { button }
     </footer>;
   }
 }
