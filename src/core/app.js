@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Footer from './footer';
+import Toolbar from './toolbar';
 import Intro from '../sections/intro';
 
 class App extends Component {
@@ -25,8 +25,10 @@ class App extends Component {
   render() {
     const Section = this.state.section;
     return <div className='app'>
-        <Section gameState={this.gameState}/>
-      <Footer gameState={this.gameState}/>
+      <Section gameState={this.gameState}/>
+      <div className='center'>
+        <Toolbar gameState={this.gameState}/>
+      </div>
     </div>;
   }
 }

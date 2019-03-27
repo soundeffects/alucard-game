@@ -12,6 +12,18 @@ body {
   padding: 0 20vw;
 }
 
+footer {
+  background: #222;
+  border-radius: 0.4em;
+  width: 16em;
+  position: absolute;
+  bottom: 1em;
+}
+
+h2 {
+  font-size: 1.1em;
+}
+
 button {
   margin: 1em;
   padding: 0.7em;
@@ -20,6 +32,7 @@ button {
   background: #333;
   border: none;
   border-radius: 0.4em;
+  cursor: pointer;
 
   transition: background 0.2s;
 }
@@ -28,12 +41,17 @@ button:hover {
   background: #555;
 }
 
+.disabled {
+  cursor: no-drop;
+  color: #555;
+  background: #222;
+}
+
+.disabled:hover {
+  background: #222;
+}
+
 .center {
   display: flex;
   justify-content: center;
-}
-
-footer {
-  background: #111;
-  border-radius: 0.4em;
 }

@@ -1,4 +1,4 @@
-const footer = {
+const toolbar = {
   easy: "Easy",
   hard: "Hard",
   next: "Next"
@@ -58,4 +58,4 @@ char = {
   title: "Character Creation",
 }
 
-export { footer, intro, char };
+export { toolbar, intro, char };
