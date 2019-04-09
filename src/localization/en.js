@@ -1,7 +1,24 @@
 const toolbar = {
   easy: "Easy",
   hard: "Hard",
-  next: "Next"
+  next: "Next",
+  inv: "Inventory"
+},
+images = {
+  appearances: [
+    "Annie",
+    "Bishamon",
+    "Edea",
+    "Ino",
+    "Lisa",
+    "Maria",
+    "Moon",
+    "Riza",
+    "Saber",
+    "Serenity",
+    "Shalltear",
+    "Violet"
+  ]
 },
 intro = {
   title: "Alucard Game",
@@ -56,6 +73,9 @@ intro = {
 },
 char = {
   title: "Character Creation",
+  description1: "You're kind of stuck as Alucard, but you can still choose your style and personality.",
+  heading1: "Appearance",
+  heading2: "Personality"
 }
 
-export { toolbar, intro, char };
+export { toolbar, images, intro, char };

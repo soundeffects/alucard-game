@@ -16,7 +16,7 @@ footer {
   background: #222;
   border-radius: 0.4em;
   width: 16em;
-  position: absolute;
+  position: fixed;
   bottom: 1em;
 }
 
@@ -54,4 +54,34 @@ button:hover {
 .center {
   display: flex;
   justify-content: center;
+}
+
+.card-form {
+  flex-wrap: wrap;
+}
+
+.card-form img {
+  width: 10em;
+  border-radius: 1em;
+  border: 4px solid #111;
+  transition: border 0.2s;
+}
+
+.card-form input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.card-form label {
+  cursor: pointer;
+  margin: 1em;
+}
+
+.card-form .grayed {
+  opacity: 0.3;
+}
+
+.card-form input:checked ~ img {
+  border: 4px solid #4286f4;
+  opacity: 1.0;
 }

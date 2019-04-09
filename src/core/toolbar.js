@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Draggable from 'react-draggable';
 
 import { toolbar } from '../localization/en';
 
 import Intro from '../sections/intro';
 import Char from '../sections/char';
+
+import Button from '../components/button';
 
 class Toolbar extends Component {
   constructor(props) {
@@ -15,18 +16,6 @@ class Toolbar extends Component {
     };
 
     this.handleAdvance = this.handleAdvance.bind(this);
-  }
-
-  getButton(label=toolbar.next, options={}) {
-    if (this.props.gameState().ready) {
-      return <button onClick={this.handleAdvance(options)}>
-        { label }
-      </button>;
-    } else {
-      return <button className="disabled">
-        { label }
-      </button>;
-    }
   }
 
   handleAdvance(options={}) {
@@ -40,21 +29,28 @@ class Toolbar extends Component {
   }
 
   render() {
-    let button;
-    const { gameState } = this.props;
-    
+    var buttons = [];
+    const { gameState } = this.props,
+          disabled = !gameState().ready;
+
+    //buttons.push(Button(toolbar.inv, null));
+
     if (gameState().section === Intro) {
-      button = [
-        this.getButton(toolbar.easy, { difficulty: false }),
-        this.getButton(toolbar.hard, { difficulty: true })
-      ]
+      buttons.push(Button(
+        toolbar.easy,
+        this.handleAdvance({ difficulty: false }),
+        disabled));
+      buttons.push(Button(
+        toolbar.hard,
+        this.handleAdvance({ difficulty: true }),
+        disabled));
     } else {
-      button = this.getButton();
+      buttons.push(Button(toolbar.next, this.handleAdvance(), disabled));
     }
 
-    return <Draggable><footer className="center">
-      { button }
-    </footer></Draggable>;
+    return <footer className="center">
+      { buttons }
+    </footer>;
   }
 }
 

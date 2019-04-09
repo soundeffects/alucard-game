@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+    <title>Alucard CYOA</title>
+
+    <style type="text/css">
+      body {
+        font-family: "Roboto Slab";
+        background: black;
+        color: #ccc;
+        padding: 0 20vw;
+      }
+      img {
+        height: 10em;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        margin-top: 2em;
+      }
+      h3 {
+        display: inline-block;
+        background: #333;
+        margin: 0;
+        padding: 0.6em;
+        border-radius: 0.6em;
+      }
+      .field-mc {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 3em;
+      }
+      .field-mc label {
+        display: inline-block;
+        margin: 0.2em;
+        cursor: pointer;
+      }
+      .field-mc label div {
+        display: flex;
+        width: 8em;
+        height: 10em;
+        background-size: cover;
+        background-position: center top;
+        border-radius: 1em;
+        cursor: pointer;
+        border: 4px solid black;
+        transition: border 0.2s;
+      }
+      .field-mc figcaption {
+        background-image: linear-gradient(transparent, rgba(0,0,0,0.6));
+        height: 30%;
+        width: 100%;
+        align-self: flex-end;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 1px 3px rgba(0,0,0,0.8);
+        border-radius: 12px;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0.4em;
+        transition: color 0.2s;
+      }
+      .field-mc input {
+        visibility: hidden;
+        position: absolute;
+        cursor: pointer;
+      }
+      .field-mc label > input:checked + div {
+        border: 4px solid #4286f4;
+      }
+      .field-mc label > input:checked + div figcaption {
+        color: #99bfff;
+      }
+      .field-mc .other {
+        width: 100%;
+        padding: 0 3em;
+        margin-top: 1em;
+      }
+      .field-mc .other h4 {
+        display: inline-block;
+        margin: 0 1.4em;
+      }
+      .field-mc .other .text {
+        border: none;
+        margin: 0;
+        background: #333;
+        padding: 0.6em;
+        color: inherit;
+        border-radius: 2px;
+        width: 40em;
+      }
+      .field-slider {
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .field-slider input {
+        margin-left: 1em;
+      }
+      .field-slider p {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="Character">
+      <h2>Your Persona</h2>
+
+      <h3>Appearance</h3>
+      <p>
+        These appearances are all different takes on the classic blond-haired Alucard that you may
+        choose, and feel free to embellish them in your head. There is also the option to
+        link an image of your own.
+      </p>
+      <form class="field-mc">
+        <label>
+          <input type="radio" name="appearance" value="lisa" checked />
+          <div style="background-image:url(https://i.pinimg.com/originals/35/e4/c0/35e4c0bfa1596b0603083cd0338be256.jpg)">
+            <figcaption>Lisa</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="riza" />
+          <div style="background-image:url(https://static.zerochan.net/Riza.Hawkeye.full.179296.jpg)">
+            <figcaption>Riza</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="ino" />
+          <div style="background-image:url(http://img.ge/images/93825163110271435595.jpg)">
+            <figcaption>Ino</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="annie" />
+          <div style="background-image:url(https://i.pinimg.com/originals/62/8c/ce/628cce93968564553edb8b24d4cd572b.jpg)">
+            <figcaption>Annie</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="moon" />
+          <div style="background-image:url(https://i.pinimg.com/736x/37/00/d7/3700d736823af2dc5bc9bae5a57b6b66--sailor-moon-usagi-sailor-moon-cosplay.jpg)">
+            <figcaption>Sailor Moon</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="bishamon" />
+          <div style="background-image:url(https://i.pinimg.com/originals/91/e9/6c/91e96cb34ccc54fae68ffe66f1c1cc46.png)">
+            <figcaption>Bishamon</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="shalltear" />
+          <div style="background-image:url(https://vignette.wikia.nocookie.net/vsbattles/images/0/0f/Shalltear.png/revision/latest?cb=20160107234439)">
+            <figcaption>Shalltear</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="saber" />
+          <div style="background-image:url(https://i.pinimg.com/originals/ad/f1/74/adf174def01763823635568823bf6656.jpg)">
+            <figcaption>Saber</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="violet" />
+          <div style="background-image:url(http://5b0988e595225.cdn.sohucs.com/images/20180824/e9f4524f17fa4b388fdc1945c1b157dc.jpg)">
+            <figcaption>Violet</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="appearance" value="edea" />
+          <div style="background-image:url(https://i.pinimg.com/originals/d0/19/2a/d0192a1edb521aa038e8b7b56ce47022.jpg)">
+            <figcaption>Edea</figcaption>
+          </div>
+        </label>
+        <label class="other">
+          <input type="radio" name="appearance" value="other" style="visibility:visible" />
+          <h4>Other</h4>
+          <input type="text" name="appearance-link" class="text" placeholder="Direct image link" style="visibility:visible" />
+        </label>
+      </form>
+
+      <h3>Personality</h3>
+
+      <h4>Core Traits</h4>
+      <form class="field-slider">
+        <p>Openness</p>
+        <input type="range" min="1" max="100" value="50" name="personality openness" />
+        <p>Conscientiousness</p>
+        <input type="range" min="1" max="100" value="50" name="personality conscientiousness" />
+        <p>Extraversion</p>
+        <input type="range" min="1" max="100" value="50" name="personality extraversion" />
+        <p>Agreeableness</p>
+        <input type="range" min="1" max="100" value="50" name="personality agreeableness" />
+        <p>Neuroticism</p>
+        <input type="range" min="1" max="100" value="50" name="personality neuroticism" />
+      </form>
+
+      <form class="field-text">
+        <h4>D&D Style Flavor Text</h4>
+        <textarea rows="6" cols="60" placeholder="Quirks" name="personality quirks"></textarea>
+        <textarea rows="6" cols="60" placeholder="Ideals" name="personality ideals"></textarea>
+        <textarea rows="6" cols="60" placeholder="Bonds" name="personality bonds"></textarea>
+        <textarea rows="6" cols="60" placeholder="Flaws" name="personality flaws"></textarea>
+      </form>
+    </section>
+
+
+    <section id="Castle">
+      <h2>The Castle</h2>
+      <img src="https://vignette.wikia.nocookie.net/castlevania/images/d/d4/Dracula%27s_Castle_-_23.png/revision/latest?cb=20180809011510" />
+
+      <h3>Teleportation</h3>
+      <p>
+        First things first, Wallachia is in unrest after Dracula's invasion, and threats
+        from the Ottomans loom. It would be best to get to safety. Other than channel
+        power, the engine room also can teleport the entire castle to any location
+        you specify through a ritual. You remember a few of the rituals; where would
+        you go?
+      </p>
+
+      <form class="field-mc">
+        <label>
+          <input type="radio" name="teleport" value="venice" />
+          <div style="background-image:url(https://image.dhgate.com/0x0/f2/albu/g2/M00/9D/77/rBVaG1buIPeACZsFAAYan6yQzkg284.jpg)">
+            <figcaption>Venice</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="teleport" value="istanbul" />
+          <div style="background-image:url(https://www.lempertz.com/typo3temp/_processed_/csm_Lempertz-1108-1380-Old-Masters-and-19th-Century-Art-Felix-Ziem-View-of-Istanbul-and-the-_8cb11fd823.jpg)">
+            <figcaption>Istanbul</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="teleport" value="vienna" />
+          <div style="background-image:url(https://cdn2.oceansbridge.com/2018/01/05103949/The-Graben-in-Vienna-Franz-von-Alt-Oil-Painting.jpg)">
+            <figcaption>Vienna</figcaption>
+          </div>
+        </label>
+      </form>
+
+      <h3>Rooms</h3>
+      <p>
+        Other than the Engine Room, there's a few rooms that come with the castle.
+        They're all in a wreck though after the battle. You'll need to decide which ones fix and upgrade.
+      </p>
+
+      <form>
+        <ul>
+          <li>
+            <h4>Marble Corridor</h4>
+            <img src="https://i3.wp.com/fullhdpictures.com/wp-content/uploads/2016/03/Great-Cathedral-Wallpaper.jpg" />
+            <button>Upgrade</button>
+            <button>Downgrade</button>
+          </li>
+          <li>
+            <h4>Observatory</h4>
+            <img src="https://db4sgowjqfwig.cloudfront.net/campaigns/80119/assets/874959/Skywatch_Observatory.jpg?1530107679" />
+            <button>Upgrade</button>
+            <button>Downgrade</button>
+          </li>
+          <li>
+            <h4>Keep</h4>
+            <img src="https://vignette.wikia.nocookie.net/five-kingdoms/images/a/a7/Armory.jpg/revision/latest?cb=20140115022719" />
+            <button>Upgrade</button>
+            <button>Downgrade</button>
+          </li>
+          <li>
+            <h4>Laboratory</h4>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/efaf3117061795.562b51b6b0f9d.jpg" />
+            <button>Upgrade</button>
+            <button>Downgrade</button>
+          </li>
+          <li>
+            <h4>Furnace</h4>
+            <img src="https://o.aolcdn.com/images/dims?quality=85&image_uri=http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F13bfd70c1c95a3c0fa0d381696c8db8%2F200967264%2Ffoundry.jpg&client=amp-blogside-v2&signature=333c12c8508def917f5a4fece94c7ce88868b6ba" />
+            <button>Upgrade</button>
+            <button>Downgrade</button>
+          </li>
+          <li>
+            <h4>Dungeon</h4>
+            <img src="http://fantasy-faction.com/wp-content/uploads/2014/12/2014-DEC-Mazes-Glimpse-Into-Utterdark-by-M0AI-278x300.jpg" />
+            <button>Upgrade</button>
+            <button>Downgrade</button>
+          </li>
+        </ul>
+      </form>
+
+      <h3>Redecorating</h3>
+      <p>
+        It's time for a makeover. With all this rebuilding, what style would you like it to be in?
+      </p>
+      <form class="field-mc">
+        <label>
+          <input type="radio" name="architecture" value="baroque" />
+          <div style="background-image:url(https://i.pinimg.com/originals/35/d0/cd/35d0cd82c64c03c315048c1243a50087.jpg)">
+            <figcaption>Baroque</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="architecture" value="gothic" />
+          <div style="background-image:url(https://i.pinimg.com/originals/96/26/f3/9626f3e78e259f879e0b3f1adde94802.jpg)">
+            <figcaption>Gothic</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="architecture" value="ottoman" />
+          <div style="background-image:url(http://etc.usf.edu/clipart/7500/7518/ali_7518_sm.gif)">
+            <figcaption>Ottoman</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="architecture" value="neoclassical" />
+          <div style="background-image:url(https://clip2art.com/images/drawn-bulding-neoclassical-architecture-7.jpg)">
+            <figcaption>Neoclassical</figcaption>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="architecture" value="romanesque" />
+          <div style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/e/e9/NSRW_Romanesque_architecture.png)">
+            <figcaption>Romanesque</figcaption>
+          </div>
+        </label>
+      </form>
+
+      <h3>Hidden Relics</h3>
+      <p>
+        After searching the place, you've found some treasures preserved amongst the rubble of the once thriving castle.
+        What relics did you find? Choose three.
+      </p>
+      <form class="field-mc-detail">
+        <label>
+          <input type="checkbox" name="relics" value="element-magic" />
+          <img src="https://game-icons.net/icons/sbed/originals/svg/pulse.svg" />
+          <h4>Maximillien's Studies on Elemental Gateways</h4>
+          <p>
+            This researcher was known for his pioneering work in the field of elemental magic,
+            widely used today, involving elementals and energies from various realms.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="vampire-magic" />
+          <img src="https://game-icons.net/icons/lorc/originals/svg/gothic-cross.svg" />
+          <h4>A Guide and History of Vampires</h4>
+          <p>
+            An impressively accurate work on vampire biology, considering it was written by humans.
+            It even contains a detailed section on the rites vampires use to control their powers.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="crystal-battery" />
+          <img src="https://game-icons.net/icons/lorc/originals/svg/crystal-shine.svg" />
+          <h4>A Strange Crystal</h4>
+          <p>
+            It seems to emmenate power, as if a glow came from its inner depths. If tapped, it might
+            be able to power your castle.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="reading-magic" />
+          <img src="https://game-icons.net/icons/lorc/originals/svg/enlightenment.svg" />
+          <h4>On My Explorations of Realms, by Guilelmo</h4>
+          <p>
+            Although convoluted and bordering delusional, the book contains a section about "The Seer's Realm,
+            Even the Gateway to Enlightenment," which prods your interest.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="medicine" />
+          <img src="https://game-icons.net/icons/delapouite/originals/svg/first-aid-kit.svg" />
+          <h4>Divine Work, by Saburo Malas</h4>
+          <p>
+            Strong religious themes are interspersed between the fundamentals of medicine.
+            Though vague at times, the substance should be sufficient for standard diagnosis and nursing.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="sword" />
+          <img src="https://game-icons.net/icons/delapouite/originals/svg/diamond-hilt.svg" />
+          <h4>A Familiar Sword</h4>
+          <p>
+            A weapon you instantly trust, though you can't recall seeing it before. It's a fine piece
+            of work, and there are tiny inscriptions on the blade. It all carries a mysterious air.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="cloak" />
+          <img src="https://game-icons.net/icons/lucasms/equipment/svg/cloak.svg" />
+          <h4>An Unnoticed Cloak</h4>
+          <p>
+            You barely spotted this one in the wardrobe. It always seems to get misplaced,
+            but turns up whenever you need it. It's fabric is dark, worn but warm.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="encyclopedia" />
+          <img src="https://game-icons.net/icons/lorc/originals/svg/bookmark.svg" />
+          <h4>Encyclopedia of All Knowledge</h4>
+          <p>
+            A pocketbook that contains infinite pages, and wisdom passed down from many
+            generations. It's pages are now yours to fill.
+          </p>
+        </label>
+        <label>
+          <input type="checkbox" name="relics" value="bag" />
+          <img src="https://game-icons.net/icons/delapouite/originals/svg/hand-bag.svg" />
+          <h4>A Very Spacious Handbag</h4>
+          <p>
+            Ordinary on the outside, but stare inside and you'll find the emptiness of
+            the void. Convenient for storing things in.
+          </p>
+        </label>
+      </form>
+    </section>
+
+
+    <aside>
+      <h2>Adrienne Fahrenheit Țepeș</h2>
+      <h3>Inventory</h3>
+    </aside>
+  </body>
+</html>

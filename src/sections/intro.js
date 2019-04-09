@@ -29,7 +29,7 @@ class Intro extends Component {
       <h1>{ intro.title }</h1>
 
       <AnimateHeight duration={500} height={height}>
-        { intro.body.map(paragraph => <p>{ paragraph }</p>) }
+        { intro.body.map((paragraph, index) => <p key={index}>{ paragraph }</p>) }
       </AnimateHeight>
       { height === 150 ? <button onClick={this.handleExpand}>{ intro.expand }</button> : null }
 
