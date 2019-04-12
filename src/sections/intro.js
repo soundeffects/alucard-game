@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AnimateHeight from 'react-animate-height';
 
-import { intro } from '../localization/en';
+import lang from '../localization/';
 
 class Intro extends Component {
   constructor(props) {
@@ -26,14 +26,14 @@ class Intro extends Component {
     const height = this.state.textHeight;
 
     return <section id='intro'>
-      <h1>{ intro.title }</h1>
+      <h1>{ lang.intro.title }</h1>
 
       <AnimateHeight duration={500} height={height}>
-        { intro.body.map((paragraph, index) => <p key={index}>{ paragraph }</p>) }
+        { lang.intro.body.map((paragraph, index) => <p key={index}>{ paragraph }</p>) }
       </AnimateHeight>
-      { height === 150 ? <button onClick={this.handleExpand}>{ intro.expand }</button> : null }
+      { height === 150 ? <button onClick={this.handleExpand}>{ lang.intro.expand }</button> : null }
 
-      <p><strong>{ intro.tldr }</strong></p>
+      <p><strong>{ lang.intro.tldr }</strong></p>
     </section>;
   }
 }

@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 
-import CardForm from '../components/cardForm';
+import PickerForm from '../components/pickerForm';
+import LevelForm from '../components/levelForm';
 
-import appearances from '../images/appearances';
+import lang from '../localization/';
 
-import { char } from '../localization/en';
+import contentImport from '../core/contentImport';
+const appearances = contentImport('appearances', 'char');
+const personality = contentImport('personality', 'char');
+const flavor = contentImport('flavor', 'char');
+
 
 class Char extends Component {
   render() {
+
     return <section id='char'>
-      <h1>{ char.title }</h1>
-      <p>{ char.description1 }</p>
-      <h2>{ char.heading1 }</h2>
-      <CardForm name='appearances' choices={appearances} limit={1} />
-      <h2>{ char.heading2 }</h2>
+      <h1>{ lang.char.title }</h1>
+      <p>{ lang.char.description1 }</p>
+      <h2>{ lang.char.heading1 }</h2>
+      <PickerForm choices={appearances} />
+      <h2>{ lang.char.heading2 }</h2>
+      <LevelForm choices={personality} />
+      <h2>{ lang.char.heading3 }</h2>
     </section>;
   }
 }

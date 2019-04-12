@@ -1,26 +1,49 @@
-const toolbar = {
-  easy: "Easy",
-  hard: "Hard",
-  next: "Next",
-  inv: "Inventory"
-},
-images = {
-  appearances: [
-    "Annie",
-    "Bishamon",
-    "Edea",
-    "Ino",
-    "Lisa",
-    "Maria",
-    "Moon",
-    "Riza",
-    "Saber",
-    "Serenity",
-    "Shalltear",
-    "Violet"
-  ]
-},
-intro = {
+const char = {
+  title: "Character Creation",
+  description1: "You're kind of stuck as Alucard, but you can still choose your style and personality.",
+  heading1: "Appearance",
+  heading2: "Personality",
+  heading3: "More Options...",
+  content: {
+    appearances: {
+      annie: "Annie",
+      bishamon: "Bishamon",
+      edea: "Edea",
+      ino: "Ino",
+      lisa: "Lisa",
+      maria: "Maria",
+      moon: "Moon",
+      riza: "Riza",
+      saber: "Saber",
+      serenity: "Serenity",
+      shalltear: "Shalltear",
+      violet: "Violet"
+    },
+    personality: {
+      openness: ["Openness",
+        "Openness influences how accepting you are of new ideas and experiences."],
+      conscientiousness: ["Conscientiousness",
+        "Conscientiousness affects how organized and methodic you are."],
+      extraversion: ["Extraversion",
+        "Extraverts enjoy interacting with others, and are good at it, while \
+        introverts prefer a more intimate setting, maybe even solitude."],
+      agreeableness: ["Agreeableness",
+        "Agreeableness affects your compassion, cooperation and affection shown \
+        towards others."],
+      neuroticism: ["Neuroticism",
+        "Neuroticism represents how emotionally unstable you are, or how often \
+        you experience negative emotions."]
+    },
+    flavor: {
+      quirks: "Quirks",
+      ideals: "Ideals",
+      bonds: "Bonds",
+      flaws: "Flaws"
+    }
+  }
+};
+
+const intro = {
   title: "Alucard Game",
   body: ["This version of Castlevania's world is more scientific (as far as that \
     goes, considering there's still magic). The magic that does exist appeared \
@@ -70,12 +93,13 @@ intro = {
   expand: "Read more...",
   tldr: "tl;dr - You're female Alucard, who has just defeated Dracula and \
     inherited the castle. Manage it how you like. Choose your difficulty to start.",
-},
-char = {
-  title: "Character Creation",
-  description1: "You're kind of stuck as Alucard, but you can still choose your style and personality.",
-  heading1: "Appearance",
-  heading2: "Personality"
-}
+};
 
-export { toolbar, images, intro, char };
+const toolbar = {
+  easy: "Easy",
+  hard: "Hard",
+  next: "Next",
+  inv: "Inventory"
+};
+
+export { char, intro, toolbar };

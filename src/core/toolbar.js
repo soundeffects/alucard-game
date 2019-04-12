@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { toolbar } from '../localization/en';
+import lang from '../localization/';
 
 import Intro from '../sections/intro';
 import Char from '../sections/char';
@@ -33,19 +33,17 @@ class Toolbar extends Component {
     const { gameState } = this.props,
           disabled = !gameState().ready;
 
-    //buttons.push(Button(toolbar.inv, null));
-
     if (gameState().section === Intro) {
       buttons.push(Button(
-        toolbar.easy,
+        lang.toolbar.easy,
         this.handleAdvance({ difficulty: false }),
         disabled));
       buttons.push(Button(
-        toolbar.hard,
+        lang.toolbar.hard,
         this.handleAdvance({ difficulty: true }),
         disabled));
     } else {
-      buttons.push(Button(toolbar.next, this.handleAdvance(), disabled));
+      buttons.push(Button(lang.toolbar.next, this.handleAdvance(), disabled));
     }
 
     return <footer className="center">
