@@ -18,6 +18,7 @@ footer {
   width: 16em;
   position: fixed;
   bottom: 1em;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 h2 {
@@ -41,6 +42,10 @@ button:hover {
   background: #555;
 }
 
+section > :last-child {
+  margin-bottom: 6em;
+}
+
 .disabled {
   cursor: no-drop;
   color: #555;
@@ -54,6 +59,7 @@ button:hover {
 .center {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card-form {
@@ -123,6 +129,10 @@ button:hover {
   outline: 0;
 }
 
+.picker-form button:focus {
+  border: 1px solid #519fff;
+}
+
 .picker-form div {
   position: absolute;
   bottom: 0;
@@ -139,4 +149,50 @@ button:hover {
   text-align: center;
   text-shadow: 1px 1px 6px black;
   margin-bottom: 1em;
+}
+
+.level-form input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.level-form label {
+  background: #333;
+  width: 1em;
+  height: 1.6em;
+  margin: 0.2em;
+  cursor: pointer;
+  border-radius: 0.2em;
+}
+
+.level-form .marked {
+  background: #519fff;
+}
+
+.level-form .input-wrapper {
+  display: flex;
+}
+
+.level-form .choice-wrapper {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.level-form figcaption {
+  margin-bottom: 0.4em;
+}
+
+.paragraph-form textarea {
+  resize: none;
+  width: 18em;
+  height: 7em;
+  margin: 0.4em;
+  padding: 0.4em;
+  background: #222;
+  border: none;
+  border-radius: 0.4em;
+  color: white;
+  font-size: 1em;
 }

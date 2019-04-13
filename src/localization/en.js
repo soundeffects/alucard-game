@@ -1,9 +1,7 @@
 const char = {
   title: "Character Creation",
   description1: "You're kind of stuck as Alucard, but you can still choose your style and personality.",
-  heading1: "Appearance",
-  heading2: "Personality",
-  heading3: "More Options...",
+  headings: ["Appearance", "Personality Traits", "D&D-style Flavor Text (Optional)"],
   content: {
     appearances: {
       annie: "Annie",

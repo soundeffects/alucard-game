@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PickerForm from '../components/pickerForm';
 import LevelForm from '../components/levelForm';
+import ParagraphForm from '../components/paragraphForm';
 
 import lang from '../localization/';
 
@@ -17,11 +18,12 @@ class Char extends Component {
     return <section id='char'>
       <h1>{ lang.char.title }</h1>
       <p>{ lang.char.description1 }</p>
-      <h2>{ lang.char.heading1 }</h2>
+      <h2>{ lang.char.headings[0] }</h2>
       <PickerForm choices={appearances} />
-      <h2>{ lang.char.heading2 }</h2>
-      <LevelForm choices={personality} />
-      <h2>{ lang.char.heading3 }</h2>
+      <h2>{ lang.char.headings[1] }</h2>
+      <LevelForm choices={personality} levels={4} />
+      <h2>{ lang.char.headings[2] }</h2>
+      <ParagraphForm choices={flavor} />
     </section>;
   }
 }
